@@ -1,0 +1,294 @@
+/* Table Container */
+.table-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table thead th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #0056b3;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+.table td {
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 14px;
+}
+
+/* Role Buttons Styling */
+.role-btn {
+    display: inline-block;
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 2px;
+    background-color:#ff0000;
+    font-weight: bold;
+    text-transform: capitalize;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.role-btn {
+        display: inline-block;
+        padding: 2px 8px;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 12px;
+        margin-right: 5px;
+    }
+    .ROLE_DOCTOR { background-color: #007bff; }
+    .ROLE_ADMIN { background-color: #dc3545; }
+    .ROLE_USER { background-color: #28a745; }
+/* Action Buttons Styling */
+.table .btn {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    margin: 2px;
+}
+
+.table .btn-warning {
+    background-color: #ffc107;
+}
+
+.table .btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.table .btn-danger {
+    background-color: #dc3545;
+}
+
+.table .btn-danger:hover {
+    background-color: #c82333;
+}
+
+.table .btn-sm {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-footer {
+    border-top: 1px solid #ddd;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* CSS cho form gÃ¡n vai trÃ² */
+.role-form {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin-bottom: 20px;
+}
+
+.role-label {
+    font-weight: bold;
+    margin-right: 15px;
+    color: #343a40;
+}
+
+.role-select {
+    margin-right: 15px;
+}
+
+.role-submit {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.role-submit:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* CSS cho cÃ¡c má»¥c vai trÃ² */
+.role-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.role-btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.role-btn.user {
+    background-color: #6c757d; /* Gray for User role */
+}
+
+.role-btn.user:hover {
+    background-color: #5a6268;
+}
+
+.role-btn.admin {
+    background-color: #dc3545; /* Red for Admin role */
+}
+
+.role-btn.admin:hover {
+    background-color: #c82333;
+}
+
+.role-btn.doctor {
+    background-color: #17a2b8; /* Blue for Doctor role */
+}
+
+.role-btn.doctor:hover {
+    background-color: #117a8b;
+}
+
+/* CSS cho form xÃ³a vai trÃ² */
+.remove-role-form {
+    display: inline;
+    margin-left: 5px;
+}
+
+.remove-role-form .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.remove-role-form .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .role-form {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .role-label {
+        margin-bottom: 10px;
+    }
+
+    .role-select {
+        margin-bottom: 10px;
+    }
+}
+/* CSS cho nÃºt Remove Role */
+.remove-role-btn {
+    background-color: #dc3545; /* MÃ u Ä‘á»  cho nÃºt xÃ³a */
+    color: #fff; /* Chá»¯ mÃ u tráº¯ng */
+    border: none; /* KhÃ´ng cÃ³ Ä‘Æ°á» ng viá» n */
+    padding: 6px 12px; /* Khoáº£ng cÃ¡ch trong nÃºt */
+    border-radius: 4px; /* Bo trÃ²n gÃ³c nÃºt */
+    font-size: 12px; /* KÃ­ch thÆ°á»›c chá»¯ */
+    cursor: pointer; /* Con trá»  khi di chuá»™t qua */
+    transition: background-color 0.3s, opacity 0.3s; /* Hiá»‡u á»©ng chuyá»ƒn mÃ u ná» n */
+    display: inline-block; /* CÄƒn chá»‰nh nÃºt theo chiá» u ngang */
+}
+
+.remove-role-btn:hover {
+    background-color: #c82333; /* MÃ u Ä‘á»  Ä‘áº­m hÆ¡n khi hover */
+}
+
+.remove-role-btn:focus {
+    outline: none; /* Loáº¡i bá»  viá» n khi nháº¥n */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* Hiá»‡u á»©ng Ä‘á»• bÃ³ng khi nÃºt Ä‘Æ°á»£c nháº¥n */
+}
+/* CSS cho form xÃ³a vai trÃ² */
+.remove-role-form {
+    display: inline-flex; /* Sá»­ dá»¥ng inline-flex Ä‘á»ƒ cÄƒn chá»‰nh theo hÃ ng ngang */
+    align-items: center; /* CÄƒn chá»‰nh theo chiá» u dá» c */
+    margin-left: 10px; /* Khoáº£ng cÃ¡ch giá»¯a form xÃ³a vai trÃ² vÃ  cÃ¡c pháº§n tá»­ khÃ¡c */
+}
+
+/* CSS cho form gÃ¡n vai trÃ² má»›i */
+.role-form {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    margin-bottom: 10px; /* Khoáº£ng cÃ¡ch dÆ°á»›i form */
+    flex-wrap: nowrap; /* NgÄƒn khÃ´ng cho cÃ¡c pháº§n tá»­ xuá»‘ng dÃ²ng */
+}
+
+.role-form .role-label,
+.role-form .role-select,
+.role-form .role-submit {
+    margin-right: 10px; /* Khoáº£ng cÃ¡ch giá»¯a cÃ¡c pháº§n tá»­ trong form */
+}
+
+.role-form .role-submit {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.role-form .role-submit:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}

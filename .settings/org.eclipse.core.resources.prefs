@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//src/main/java/fpt/fa/controller/AdminController.java=UTF-8
+encoding//src/main/java/fpt/fa/controller/HomeController.java=UTF-8
+encoding//src/main/java/fpt/fa/controller/ManagerAccountController.java=UTF-8
+encoding//src/main/java/fpt/fa/repositories/AllCodeRepository.java=UTF-8
+encoding//src/main/java/fpt/fa/service/AccountService.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Admin/Page/Mail/SendMail.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Admin/Page/ManagerAcount/ListAccount.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Admin/Page/error-404.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Doctor/Login.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Doctor/Page/Post/PostDetail.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Doctor/Page/Profile/user-info.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Doctor/Register.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Doctor/error/404.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Doctor/layout/footer.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/Doctor/layout/navbar.jsp=UTF-8

@@ -1,0 +1,152 @@
+.team-item img {
+    object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
+    width: 100%; /* Đảm bảo hình ảnh lấp đầy khung */
+   height: 400px;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Thêm hiệu ứng khi di chuột */
+}
+
+.team-item:hover img {
+    transform: scale(1.05); /* Phóng to hình ảnh khi di chuột */
+    filter: brightness(90%); /* Tăng cường độ sáng khi di chuột */
+}
+
+/* Tùy chỉnh modal */
+.modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #f9f9f9;
+    border: none;
+}
+
+.modal-header {
+    border-bottom: 1px solid #ddd;
+    background: #007bff;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-close {
+    filter: invert(100%);
+}
+
+.modal-body {
+    padding: 2rem;
+    color: #333;
+}
+
+.modal-footer {
+    border-top: 1px solid #ddd;
+    background: #f8f9fa;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.modal-footer .btn {
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+}
+
+.modal-dialog {
+    max-width: 800px;
+}
+
+/* Tùy chỉnh cho nút 'Read More' */
+.btn-primary {
+    background: #007bff;
+    border: none;
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+}
+ .modal-dialog.custom-width {
+            max-width: 900px;
+            width: 100%;
+}
+.feature-text {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+team-item {
+    overflow: hidden; /* Đảm bảo không có phần tử bị tràn ra ngoài */
+    border-radius: 15px; /* Bo góc của phần item */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm bóng cho phần item */
+    position: relative; /* Để các hiệu ứng của phần tử con có thể được áp dụng chính xác */
+    transition: box-shadow 0.3s ease; /* Thêm hiệu ứng khi di chuột */
+}
+
+.team-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Tăng độ bóng khi di chuột */
+}
+
+.team-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Nền mờ trắng */
+    padding: 20px;
+    border-radius: 15px 15px 0 0; /* Bo góc trên của phần text */
+    transition: background-color 0.3s ease; /* Thêm hiệu ứng khi di chuột */
+}
+
+.team-item:hover .team-text {
+    background-color: rgba(255, 255, 255, 1); /* Nền màu trắng khi di chuột */
+}
+
+.team-text h5 {
+    margin-bottom: 0.5rem; /* Khoảng cách dưới của tiêu đề */
+}
+
+.team-text p {
+    margin-bottom: 0.5rem; /* Khoảng cách dưới của mô tả */
+}
+.testimonial-item {
+    background-color: #f9f9f9; /* Nền màu sáng cho phần đánh giá */
+    border-radius: 10px; /* Bo góc phần đánh giá */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Thêm bóng nhẹ cho phần đánh giá */
+    padding: 20px;
+    transition: box-shadow 0.3s ease; /* Thêm hiệu ứng khi di chuột */
+}
+
+.testimonial-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Tăng độ bóng khi di chuột */
+}
+
+.testimonial-item img {
+    object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
+    border: 4px solid #fff; /* Đặt viền trắng xung quanh hình ảnh */
+    transition: transform 0.3s ease; /* Thêm hiệu ứng khi di chuột */
+}
+
+.testimonial-item:hover img {
+    transform: scale(1.05); /* Phóng to hình ảnh khi di chuột */
+}
+
+.testimonial-text {
+    background-color: #fff; /* Nền trắng cho phần văn bản */
+    border: 1px solid #ddd; /* Viền nhẹ cho phần văn bản */
+}
+
+.testimonial-text p {
+    font-style: italic; /* Văn bản trong dấu ngoặc kép */
+    color: #333; /* Màu chữ tối hơn để dễ đọc */
+}
+
+.testimonial-text h5 {
+    color: #333; /* Màu chữ tối cho tên bệnh nhân */
+    font-weight: bold; /* Làm đậm tên bệnh nhân */
+}
+
+.testimonial-text span {
+    color: #555; /* Màu chữ cho chức danh */
+}
