@@ -1,69 +1,66 @@
-/* modal-styles.css */
-
 /* Modal Content */
 .modal-content {
-  border-radius: 15px; /* Bo góc mềm mại */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ để nổi bật hơn */
-  border: none; /* Loại bỏ viền mặc định */
+  border-radius: 15px; /* Soft rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow for depth */
+  border: none; /* Remove default border */
 }
 
 /* Modal Header */
 .modal-header {
-  background-color: #007bff; /* Màu nền của header */
-  color: white; /* Màu chữ */
-  border-bottom: 1px solid #0056b3; /* Viền dưới cho header */
-  border-radius: 15px 15px 0 0; /* Bo góc trên cho header */
-  justify-content: center; /* Căn giữa tiêu đề */
+  background-color: #007bff; /* Header background */
+  color: white; /* Header text color */
+  border-bottom: 1px solid #0056b3; /* Bottom border */
+  border-radius: 15px 15px 0 0; /* Rounded corners at the top */
+  justify-content: center; /* Center align title */
 }
 
 .modal-title {
-  margin: 0; /* Loại bỏ margin mặc định của title */
-  text-align: center; /* Căn giữa tiêu đề */
-  flex: 1; /* Chiếm toàn bộ không gian còn lại */
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Center the title */
+  flex: 1; /* Take full available space */
 }
 
 /* Modal Body */
 .modal-body {
-  padding: 20px; /* Padding cho body */
-  text-align: center; /* Căn giữa nội dung trong modal-body */
+  padding: 20px; /* Add padding */
+  text-align: center; /* Center text */
 }
 
-/* Form Groups */
+/* Form Group Styling */
 .form-group {
-  margin-bottom: 1rem; /* Khoảng cách giữa các nhóm form */
-  text-align: left; /* Căn lề trái cho các nhóm form */
+  margin-bottom: 1rem; /* Space between form groups */
+  text-align: left; /* Left-align form labels */
 }
 
-/* Label */
+/* Form Label Styling */
 .form-group label {
-  display: block; /* Đảm bảo label chiếm toàn bộ chiều rộng của nhóm form */
-  margin-bottom: 0.5rem; /* Khoảng cách giữa label và input */
+  display: block; /* Block display for labels */
+  margin-bottom: 0.5rem; /* Space between label and input */
 }
 
 /* Input Fields */
 .form-control {
-  border-radius: 5px; /* Bo góc cho input fields */
-  border: 1px solid #ced4da; /* Viền nhẹ cho input fields */
-  padding: 0.75rem 1.25rem; /* Padding cho input fields */
-  transition: border-color 0.2s ease-in-out; /* Hiệu ứng chuyển màu viền khi focus */
-  max-width: 100%; /* Chiều rộng tối đa của input fields */
+  border-radius: 5px; /* Rounded corners for input */
+  border: 1px solid #ced4da; /* Light border for input */
+  padding: 0.75rem 1.25rem; /* Add padding to inputs */
+  transition: border-color 0.2s ease-in-out; /* Smooth transition on focus */
+  max-width: 100%; /* Ensure full width on mobile */
 }
 
-/* Buttons */
+/* Buttons Styling */
 .btn {
-  border-radius: 5px; /* Bo góc cho buttons */
-  padding: 0.5rem 1rem; /* Padding cho buttons */
-  font-size: 1rem; /* Kích thước chữ */
-  min-width: 150px; /* Chiều rộng tối thiểu cho buttons */
-  margin: 0.5rem; /* Khoảng cách giữa các nút */
-  display: inline-block; /* Đảm bảo các nút được căn giữa */
-  text-align: center; /* Căn giữa chữ trong nút */
+  border-radius: 5px; /* Rounded corners for buttons */
+  padding: 0.5rem 1rem; /* Padding inside buttons */
+  font-size: 1rem; /* Font size */
+  min-width: 150px; /* Minimum width */
+  margin: 0.5rem; /* Space between buttons */
+  text-align: center; /* Center button text */
 }
 
 .btn-primary {
   background-color: #007bff;
   border-color: #007bff;
-  color: white; /* Màu chữ */
+  color: white; /* Button text color */
 }
 
 .btn-primary:hover {
@@ -74,7 +71,7 @@
 .btn-secondary {
   background-color: #6c757d;
   border-color: #6c757d;
-  color: white; /* Màu chữ */
+  color: white; /* Button text color */
 }
 
 .btn-secondary:hover {
@@ -84,5 +81,62 @@
 
 /* Back Button */
 #backToStep1 {
-  margin-top: 1rem; /* Khoảng cách từ nút Reset Password */
+  margin-top: 1rem; /* Space above the back button */
 }
+/* OTP Input Styling */
+.otp-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2rem; /* Add spacing below the OTP input field */
+}
+
+.otp-input-wrapper label {
+  margin-bottom: 1rem;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.otp-input {
+  --otp-digits: 6;
+  --otp-ls: 2ch;
+  --otp-gap: 1.25;
+
+  /* private consts */
+  --_otp-bgsz: calc(var(--otp-ls) + 1ch);
+  --_otp-digit: 0;
+
+  all: unset;
+  background: 
+  linear-gradient(90deg, 
+    var(--otp-bg, #BBB) calc(var(--otp-gap) * var(--otp-ls)),
+    transparent 0),
+    linear-gradient(90deg, 
+    var(--otp-bg, #EEE) calc(var(--otp-gap) * var(--otp-ls)),
+    transparent 0
+  );
+  background-position: calc(var(--_otp-digit) * var(--_otp-bgsz)) 0, 0 0;
+  background-repeat: no-repeat, repeat-x;
+  background-size: var(--_otp-bgsz) 100%;
+  caret-color: var(--otp-cc, #222);
+  caret-shape: block;
+  clip-path: inset(0% calc(var(--otp-ls) / 2) 0% 0%);
+  font-size: var(--otp-fz, 2.5em);
+  inline-size: calc(var(--otp-digits) * var(--_otp-bgsz));
+  letter-spacing: var(--otp-ls);
+  padding-block: var(--otp-pb, 0ch);
+  padding-inline-start: calc(((var(--otp-ls) - 1ch) / 2) * var(--otp-gap));
+  text-align: left;
+}
+
+/* For this demo */
+label span {
+  display: block;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  margin-block-end: 1ch;
+}
+

@@ -88,11 +88,13 @@
 	<mvc:resources mapping="/uploads/**" location="/uploads/" />
 	
 	<!-- Config message.properties -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="classpath:messages" />
-		<property name="defaultEncoding" value="UTF-8" />
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	    <property name="basename" value="classpath:messages" />
+	     <property name="defaultEncoding" value="UTF-8"/>
 	</bean>
+
+	
+	
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	    <property name="maxUploadSize" value="10485760" /> <!-- 10MB -->
 	</bean>
@@ -117,6 +119,19 @@
 	    
 	</bean>
 	<import resource="spring-security.xml" />
-	
+	 <!-- Cấu hình LocaleResolver -->
+		<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		    <property name="defaultLocale" value="en" />
+		</bean>
+		
+		<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		    <property name="paramName" value="lang" />
+		</bean>
+		
+		<mvc:interceptors>
+		    <ref bean="localeChangeInterceptor" />
+		</mvc:interceptors>
+
+
 	
 </beans>

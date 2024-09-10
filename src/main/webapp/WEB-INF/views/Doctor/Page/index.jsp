@@ -10,7 +10,8 @@
 <title>Trang chủ người dùng</title>
 <jsp:include page="/WEB-INF/views/Doctor/layout/header.jsp" />
     <link rel="stylesheet" href="${contextPath}/resources/asset/css/fix.css">
-
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <style>
 
 </style>
@@ -18,51 +19,70 @@
 <body>
     <jsp:include page="/WEB-INF/views/Doctor/layout/navbar.jsp" />
  <!-- Header Start -->
-<div class="container-fluid header bg-primary p-0 mb-5">
-    <div class="row g-0 align-items-center flex-column-reverse flex-lg-row">
-        <div class="col-lg-6 p-5 wow fadeIn" data-wow-delay="0.1s">
-            <h1 class="display-4 text-white mb-5">Điểm đến của dịch vụ chăm sóc sức khỏe chất lượng cao</h1>
-            
-            <div class="row g-4">
-                <div class="col-sm-4">
-                    <div class="border-start border-light ps-4">
-                        <h2 class="text-white mb-1" data-toggle="counter-up">123</h2>
-                        <p class="text-light mb-0">Bác sĩ chuyên gia</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="border-start border-light ps-4">
-                        <h2 class="text-white mb-1" data-toggle="counter-up">1234</h2>
-                        <p class="text-light mb-0">Nhân viên y tế</p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="border-start border-light ps-4">
-                        <h2 class="text-white mb-1" data-toggle="counter-up">12345</h2>
-                        <p class="text-light mb-0">Tổng số bệnh nhân</p>
-                    </div>
-                </div>
+ <!-- test -->
+<div class="slider-container">
+ <!-- test -->
+ <ul class='slider'>
+          <li class='item' style="background-image: url('https://cdn.mos.cms.futurecdn.net/dP3N4qnEZ4tCTCLq59iysd.jpg')">
+            <div class='content'>
+              <h2 class='title'>"Lossless Youths"</h2>
+              <p class='description'> Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+              praesentium nisi. Id laboriosam ipsam enim.  </p>
+              <button>Read More</button>
             </div>
-        </div>
-        <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-            <div class="owl-carousel header-carousel">
-                <c:forEach items="${carousel }" var="item">
-                    <div class="owl-carousel-item position-relative">
-                      <img class="img-fluid" src="${contextPath}${item.image}" alt="${item.name}" style="object-fit:cover;height:800px;filter: brightness(90%) contrast(110%);">
-
-                        <div class="owl-carousel-text">
-                            <h1 class="display-1 text-white mb-0">${item.name }</h1>
-                        </div>
-                    </div>
-                </c:forEach>
+          </li>
+          <li class='item' style="background-image: url('https://i.redd.it/tc0aqpv92pn21.jpg')">
+            <div class='content'>
+              <h2 class='title'>"Estrange Bond"</h2>
+              <p class='description'> Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+              praesentium nisi. Id laboriosam ipsam enim.  </p>
+              <button>Read More</button>
             </div>
-        </div>
-        
-    </div>
+          </li>
+          <li class='item' style="background-image: url('https://wharferj.files.wordpress.com/2015/11/bio_north.jpg')">
+            <div class='content'>
+              <h2 class='title'>"The Gate Keeper"</h2>
+              <p class='description'> Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+              praesentium nisi. Id laboriosam ipsam enim.  </p>
+              <button>Read More</button>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://images7.alphacoders.com/878/878663.jpg')">
+            <div class='content'>
+              <h2 class='title'>"Last Trace Of Us"</h2>
+              <p class='description'>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
+              </p>
+              <button>Read More</button>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://theawesomer.com/photos/2017/07/simon_stalenhag_the_electric_state_6.jpg')">
+            <div class='content'>
+              <h2 class='title'>"Urban Decay"</h2>
+              <p class='description'>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.
+              </p>
+              <button>Read More</button>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://da.se/app/uploads/2015/09/simon-december1994.jpg')">
+            <div class='content'>
+              <h2 class='title'>"The Migration"</h2>
+              <p class='description'> Lorem ipsum, dolor sit amet consectetur
+              adipisicing elit. Tempore fuga voluptatum, iure corporis inventore
+              praesentium nisi. Id laboriosam ipsam enim.  </p>
+              <button>Read More</button>
+            </div>
+          </li>
+        </ul>
+        <nav class='nav'>
+          <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+          <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+        </nav>
 </div>
-<!-- Header End -->
-
-
     <!-- About Start -->
     <div class="container-xxl py-5">
         <div class="container">
@@ -267,7 +287,6 @@
     </div>
 </div>
 <!-- Testimonial End -->
-
    <!-- Modal Structure -->
 	<div class="modal fade" id="readMoreModal" tabindex="-1"
 		aria-labelledby="readMoreModalLabel" aria-hidden="true">
@@ -287,9 +306,35 @@
 			</div>
 		</div>
 	</div>
-
+	
    	<jsp:include page="/WEB-INF/views/Doctor/layout/footer.jsp" />
    	<jsp:include page="/WEB-INF/views/Doctor/layout/script.jsp" />
-   	
+ 	<script type="text/javascript">
+ 	const slider = document.querySelector('.slider');
+
+    // Hàm để điều khiển chuyển slide
+    function moveSlide(next = true) {
+        const items = document.querySelectorAll('.item');
+        if (next) {
+            slider.append(items[0]); // Di chuyển slide hiện tại xuống cuối
+        } else {
+            slider.prepend(items[items.length - 1]); // Di chuyển slide cuối lên đầu
+        }
+    }
+
+    // Điều khiển bằng nút bấm
+    function activate(e) {
+        if (e.target.matches('.next')) moveSlide(true);  // Chuyển qua slide tiếp theo
+        if (e.target.matches('.prev')) moveSlide(false); // Quay lại slide trước đó
+    }
+
+    // Thiết lập tự động chuyển slide mỗi 200 giây (200.000ms)
+    setInterval(() => {
+        moveSlide(true); // Chuyển sang slide tiếp theo
+    }, 21000); // 200 giây = 200.000ms
+
+    // Lắng nghe sự kiện click để điều khiển thủ công
+    document.addEventListener('click', activate, false);
+ 	</script>
    </body>
 </html>

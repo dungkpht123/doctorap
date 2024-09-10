@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,6 +12,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.mail.MailException;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +31,7 @@ import fpt.fa.repositories.AllCodeRepository;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +41,8 @@ import java.util.Random;
 @Transactional
 public class AccountService {
 	 private static final Logger logger = Logger.getLogger(AccountService.class.getName());
-	    
+	 private static final int RESET_CODE_EXPIRATION_MINUTES = 1/2; // Expiration time in minutes
+
 	@Autowired
 	private AccountRepository accountRepository;
 
@@ -49,8 +55,10 @@ public class AccountService {
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
-	// Lưu trữ mã xác nhận
-	private Map<String, String> resetCodes = new HashMap<>();
+	
+    // Store reset codes and their creation times
+    private Map<String, ResetCodeInfo> resetCodes = new HashMap<>();
+
 
 	public AccountEntity registerNewUser(AccountEntity account) {
 		account.setPassword(passwordEncoder.encode(account.getPassword()));
@@ -85,8 +93,15 @@ public class AccountService {
 		return false;
 	}
 
-	public AccountEntity findByEmail(String email) {
-		return accountRepository.findByEmail(email);
+
+
+	public AccountEntity findByEmail(String email) throws UsernameNotFoundException   {
+		  AccountEntity account = accountRepository.findByEmail(email);
+		    if (account == null) {
+		        throw new UsernameNotFoundException("Email không tồn tại trong hệ thống");
+		    }
+		    return account; 
+	
 	}
 
 	// LÆ°u tÃ i khoáº£n
@@ -215,47 +230,73 @@ public class AccountService {
 		return accountRepository.findAllDoctors();
 	}
 
-	public boolean sendResetCode(String email) {
-		AccountEntity account = accountRepository.findByEmail(email);
-		if (account == null) {
-			return false; // Email address not found
-		}
+	// Password Reset
+    public boolean sendResetCode(String email) {
+        AccountEntity account = accountRepository.findByEmail(email);
+        if (account == null) {
+            return false; // Email address not found
+        }
+        String resetCode = generateResetCode();
+        LocalDateTime creationTime = LocalDateTime.now();
+        resetCodes.put(email, new ResetCodeInfo(resetCode, creationTime));
+        String subject = "Password Reset Code";
+        String message = "Your reset code is: " + resetCode;
+        try {
+            emailService.sendEmail(email, subject, message);
+            return true;
+        } catch (MailException e) {
+            logger.severe("Failed to send reset code email: " + e.getMessage());
+            return false;
+        }
+    }
 
-		String resetCode = generateResetCode();
-		resetCodes.put(email, resetCode);
+    public boolean verifyResetCode(String email, String resetCode) {
+        ResetCodeInfo resetCodeInfo = resetCodes.get(email);
+        if (resetCodeInfo != null) {
+            LocalDateTime now = LocalDateTime.now();
+            long minutesElapsed = ChronoUnit.MINUTES.between(resetCodeInfo.getCreationTime(), now);
+            return minutesElapsed <= RESET_CODE_EXPIRATION_MINUTES && resetCodeInfo.getCode().equals(resetCode);
+        }
+        return false;
+    }
 
-		String subject = "Password Reset Code";
-		String message = "Your reset code is: " + resetCode;
+    public boolean resetPassword(String email, String resetCode, String newPassword) {
+        if (verifyResetCode(email, resetCode)) {
+            AccountEntity account = accountRepository.findByEmail(email);
+            if (account != null) {
+                account.setPassword(passwordEncoder.encode(newPassword));
+                accountRepository.save(account);
+                resetCodes.remove(email);
+                return true;
+            }
+        }
+        return false;
+    }
 
-		try {
-			emailService.sendEmail(email, subject, message);
-			return true;
-		} catch (MailException e) {
-			e.printStackTrace();
-			return false; // Handle email sending failure
-		}
-	}
+    private String generateResetCode() {
+        Random random = new Random();
+        return String.format("%06d", 100000 + random.nextInt(900000)); // 6-digit code
+    }
+		    // Other methods...
 
-	public boolean resetPassword(String email, String resetCode, String newPassword) {
-		// Check if new password and confirm password match
-		String storedCode = resetCodes.get(email);
-		if (storedCode != null && storedCode.equals(resetCode)) {
-			AccountEntity account = accountRepository.findByEmail(email);
-			if (account != null) {
-				account.setPassword(passwordEncoder.encode(newPassword));
-				accountRepository.save(account);
-				resetCodes.remove(email); // Remove the code once used
-				return true; // Password reset successful
-			}
-		}
-		return false; // Invalid reset code or email
-	}
+ // Inner class to store reset code and its creation time
+    private static class ResetCodeInfo {
+        private final String code;
+        private final LocalDateTime creationTime;
 
-	private String generateResetCode() {
-		Random random = new Random();
-		int code = 100000 + random.nextInt(900000); // Generate a 6-digit code
-		return Integer.toString(code);
-	}
+        public ResetCodeInfo(String code, LocalDateTime creationTime) {
+            this.code = code;
+            this.creationTime = creationTime;
+        }
+
+        public String getCode() {
+            return code;
+        }
+
+        public LocalDateTime getCreationTime() {
+            return creationTime;
+        }
+    }
 
 	// thêm tài khoản
 	public void addAccount(String email, String password, String userName, AccountRole role) {
@@ -387,5 +428,7 @@ public class AccountService {
 	    public long getTotalNumberOfUsersByRole(AccountRole role) {
 	        return accountRepository.countByRole(role);
 	    }
-
+		
+		
+		
 }

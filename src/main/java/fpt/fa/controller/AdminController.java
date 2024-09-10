@@ -69,32 +69,6 @@ public class AdminController {
 		return "Admin/Page/ManagerAcount/ListAccount";
 	}
 
-//	@RequestMapping(value = "/assignRole", method = RequestMethod.POST)
-//	public String assignRole(@RequestParam("userId") int userId, @RequestParam("role") String roleName, Model model) {
-//		try {
-//			AccountRole role = AccountRole.valueOf(roleName);
-//			accountService.updateUserRole(userId, role);
-//			model.addAttribute("message", "Role updated successfully!");
-//		} catch (IllegalArgumentException e) {
-//			model.addAttribute("message", "Invalid role specified or role not found.");
-//		}
-//		return "redirect:/quan-ly-tai-khoan";
-//	}
-//
-//	@RequestMapping(value = "/removeRole", method = RequestMethod.POST)
-//	public String removeRole(@RequestParam("userId") int userId, @RequestParam("role") String roleName, Model model) {
-//		try {
-//			AccountRole role = AccountRole.valueOf(roleName);
-//			accountService.removeUserRole(userId, role);
-//			model.addAttribute("message", "Role removed successfully!");
-//		} catch (IllegalArgumentException e) {
-//			model.addAttribute("message", "Invalid role specified or role not found.");
-//		}
-//
-//		return "redirect:/quan-ly-tai-khoan"; // Redirect về trang admin sau khi xóa role
-//	}
-
-
 	@RequestMapping(value = "admin/quan-ly-tai-khoan/add", method = RequestMethod.POST)
 	public String addUser(@RequestParam("email") String email,
 	                      @RequestParam("password") String password,

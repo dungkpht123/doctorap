@@ -125,6 +125,7 @@
 }
 
 .navbar.sticky-top {
+	z-index:2;
     top: -100px;
     transition: .5s;
 }

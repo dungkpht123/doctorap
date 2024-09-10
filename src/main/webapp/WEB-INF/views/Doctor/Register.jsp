@@ -135,7 +135,7 @@
               </div>
 
               <div class="credits">
-                Designed by <a href="#">Intern JAVA</a>
+                Designed by <a href="#">JAVA</a>
               </div>
 
             </div>
@@ -145,6 +145,7 @@
       </section>
 
     </div>
+    
   </main><!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
